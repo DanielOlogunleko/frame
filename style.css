@@ -31,6 +31,7 @@ html {
     top: 50%;
     width: 25em;
     cursor: pointer;
+    overflow: hidden;
 }
 
 /* Frame */
@@ -76,6 +77,12 @@ html {
     box-shadow: 0 -1px 0 2px hsla(0, 0%, 0%, .03);
     list-style: none;
     position: absolute;
+    inset: .5em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Navigation dots */
@@ -90,19 +97,9 @@ html {
     margin-top: 7.5em;
     padding-left: .5em;
     z-index: 10;
-    opacity: 0;
-    visibility: hidden;
+    opacity: 1;
+    visibility: visible;
     transition: .25s;
-}
-
-.frame:hover ~ .frame-nav {
-    opacity: 1;
-    visibility: visible;
-}
-
-.frame-nav:hover {
-    opacity: 1;
-    visibility: visible;
 }
 
 .frame-nav span {
@@ -139,17 +136,37 @@ html {
 
 .frame img {
     object-fit: cover;
-    height: 18.75em;
+    width: 100%;
+    max-width: 220px;
+    height: 180px;
     opacity: 0;
     transition: .25s;
-    width: 25em;
     vertical-align: top;
     visibility: hidden;
     user-select: none;
+    border-radius: 8px;
+    margin-bottom: .5em;
 }
 
 .frame li.active img {
     opacity: 1;
     visibility: visible;
     z-index: 10;
+}
+
+.frame li p {
+    margin-top: 0.5em;
+    font-size: 0.95rem;
+    color: #22130c;
+    opacity: 0;
+    visibility: hidden;
+    transition: .25s;
+    background: hsla(0, 0%, 100%, .88);
+    padding: .35em .6em;
+    border-radius: 6px;
+}
+
+.frame li.active p {
+    opacity: 1;
+    visibility: visible;
 }
